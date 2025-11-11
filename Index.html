@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qur'an Interaktif</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>📖 Qur'an Interaktif</h1>
+  </header>
+
+  <main>
+    <section id="menu">
+      <button onclick="showSection('baca')">Baca Qur'an</button>
+      <button onclick="showSection('hafalan')">Hafalan</button>
+      <button onclick="showSection('tajwid')">Uji Tajwid</button>
+      <button onclick="showSection('nilai')">Nilai Saya</button>
+    </section>
+
+    <!-- Baca Qur'an -->
+    <section id="baca" class="hidden">
+      <h2>Baca Qur'an</h2>
+      <select id="surahSelect" onchange="loadSurah()"></select>
+      <div id="ayatContainer"></div>
+      <audio id="audioPlayer" controls></audio>
+    </section>
+
+    <!-- Hafalan -->
+    <section id="hafalan" class="hidden">
+      <h2>Hafalan</h2>
+      <p id="ayatHilang"></p>
+      <input id="jawaban" placeholder="Isi bagian ayat yang hilang...">
+      <button onclick="periksaHafalan()">Periksa</button>
+      <p id="hasilHafalan"></p>
+    </section>
+
+    <!-- Uji Tajwid -->
+    <section id="tajwid" class="hidden">
+      <h2>Uji Tajwid</h2>
+      <p id="soalTajwid">Apa hukum tajwid dalam ayat ini?</p>
+      <select id="jawabanTajwid">
+        <option>Idgham</option>
+        <option>Ikhfa</option>
+        <option>Qalqalah</option>
+        <option>Iqlab</option>
+      </select>
+      <button onclick="cekTajwid()">Cek Jawaban</button>
+      <p id="hasilTajwid"></p>
+    </section>
+
+    <!-- Nilai -->
+    <section id="nilai" class="hidden">
+      <h2>Nilai Saya</h2>
+      <p>Nilai Hafalan: <span id="nilaiHafalan">0</span></p>
+      <p>Nilai Tajwid: <span id="nilaiTajwid">0</span></p>
+      <button onclick="resetNilai()">Reset Nilai</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
